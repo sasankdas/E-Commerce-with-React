@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import HeroSection from "./Components/HeroSection";
+import Services from "./Components/Services"
+import Trusted from "./Components/Trusted";
 
 const Home = () => {
   const data = {
@@ -8,6 +10,8 @@ const Home = () => {
   return (
     <>
       <HeroSection info={data}></HeroSection>
+      <Services/>
+      <Trusted/>
     </>
   );
 };
