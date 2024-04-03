@@ -1,41 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
+import { CiMenuBurger } from "react-icons/ci";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Navbar = () => {
+  const [menuIcon, setMenuIcon] = useState(false);
   return (
     <>
       <Nav>
-        <div className="navbar">
+        <div className={menuIcon ? "navbar active" : "navbar"}>
           <ul className="navbar-lists">
             <li>
-              <NavLink to="/" className="navbar-link home-link">
+              <NavLink to="/" className="navbar-link home-link" onClick={()=> setMenuIcon(false)}>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/About" className="navbar-link home-link">
+              <NavLink to="/About" className="navbar-link home-link" onClick={()=> setMenuIcon(false)}>
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink to="/products" className="navbar-link home-link">
+              <NavLink to="/products" className="navbar-link home-link" onClick={()=> setMenuIcon(false)}>
                 Products
               </NavLink>
             </li>
             <li>
-              <NavLink to="/Contact" className="navbar-link home-link">
+              <NavLink to="/Contact" className="navbar-link home-link" onClick={()=> setMenuIcon(false)}>
                 Contact
               </NavLink>
             </li>
             <li>
-              <NavLink to="/Cart" className="navbar-link home-link cart-trolley--link">
+              <NavLink to="/Cart" className="navbar-link home-link cart-trolley--link" onClick={()=> setMenuIcon(false)}>
               <PiShoppingCartSimpleFill className="cart-trolley"/>
                 <span className="cart-trolley--item">9</span>
               </NavLink>
             </li>
           </ul>
+          <div className="mobile-navbar-btn">
+          <CiMenuBurger name="menu-outline" className="mobile-nav-icon" onClick={()=> setMenuIcon(true)}/>
+          <AiOutlineClose name="close-outline" className="mobile-nav-icon close-outline" onClick={()=> setMenuIcon(false)}/>
+
+          </div>
+
         </div>
       </Nav>
     </>
